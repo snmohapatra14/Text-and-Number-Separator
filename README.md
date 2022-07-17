@@ -1,2 +1,32 @@
 # Text-and-Number-Separator
-The code creates two functions SEPNUM and SEPTEXT to separate number and text in a string excluding the special characters
+# The code creates two functions SEPNUM and SEPTEXT to separate number and text in a string excluding the special characters
+# The functions use only 1 argument i.e., the input string
+
+Function SEPNUM(inputvalue As String)
+Dim length As Integer
+length = Len(inputvalue)
+Dim i As Integer
+Dim j As Long
+For i = 1 To length
+If asc(Mid(inputvalue, i, 1)) > 47 And asc(Mid(inputvalue, i, 1)) < 58 Then
+j = j & Mid(inputvalue, i, 1)
+Else
+j = j & ""
+End If
+Next i
+SEPNUM = j
+End Function
+Function SEPTEXT(inputvalue As String)
+Dim length As Integer
+length = Len(inputvalue)
+Dim m As Integer
+Dim k As String
+For m = 1 To length
+If (asc(Mid(inputvalue, m, 1)) > 64 And asc(Mid(inputvalue, m, 1)) < 90) Or (asc(Mid(inputvalue, m, 1)) > 96 And asc(Mid(inputvalue, m, 1)) < 123) Then
+k = k & Mid(inputvalue, m, 1)
+Else
+k = k & ""
+End If
+Next m
+SEPTEXT = k
+End Function
